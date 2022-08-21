@@ -32,12 +32,11 @@ function verifyTextarea() {
 function onFormSubmit(evt) {
   evt.preventDefault();
   const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  if (!savedData.email && !savedData.message) {
-    console.log(savedData);
-  } else {
+  if (!savedData.email || !savedData.message) {
     return alert("Не все поля заполнил скотиняка!");
+  } else {
+    console.log(savedData);
   }
-
   evt.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
